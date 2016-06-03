@@ -1,32 +1,18 @@
 $( function() {
-
-  $('#appendSomething').click( function(){
-    console.log( "asdf" );
-    $('body').append( "<p>lorem ipsum or something</p>");
-  }); // end append click
-
-  $('#getJSON' ).click( function(){
+  $('#getJSONajax' ).click( function(){
     console.log( 'button clicked' );
-    $.getJSON('http://devjana.net/nu/examples/asdf/test.json', function(data){
-       console.log( 'in getJSON' );
-       console.log( data );
-    }); // end get JSON JQuery call
-  }); // end getJSON button click
-
-  // $('#getJSONajax' ).click( function(){
-  //   console.log( 'button clicked' );
-  //    $.ajax({
-  //      url: './test.json',
-  //      dataType: 'json',
-  //      success: function( data ){
-  //         console.log( 'in ajax success' );
-  //         console.log( data );
-  //        }, // end success
-  //      statusCode: {
-  //         404: function(){
-  //            alert( 'error connecting to server' );
-  //         } // end 404
-  //        } // end statusCode
-  //      }); // end ajax  object
-  // }); // end click getJSONAjax button
+     $.ajax({
+       url: 'https://raw.githubusercontent.com/devjanaprime/2.4-jQueryAjaxJSON/master/students.json',
+       dataType: 'json',
+       success: function( data ){
+          console.log( 'in ajax success' );
+          console.log( data );
+         }, // end success
+       statusCode: {
+          404: function(){
+             alert( 'error connecting to server' );
+          } // end 404
+         } // end statusCode
+       }); // end ajax  object
+  }); // end click getJSONAjax button
 });
